@@ -1,7 +1,5 @@
 import 'package:first/providers/new_provider.dart';
-import 'package:first/providers/provider.dart';
 import 'package:first/providers/proxyy.dart';
-//import 'package:first/providers/double_increment.dart'; // Make sure this file contains DoubleIncrement class
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,7 +10,7 @@ class NewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print("build new screen");
-    final counter = Provider.of<CounterProvider>(context, listen: false);
+
     final newnotefier = Provider.of<Newnote>(context, listen: false);
     //final doubleincremen = Provider.of<Doubleincrement>(context , listen: false);
 
