@@ -1,7 +1,5 @@
 import 'package:first/providers/new_provider.dart';
-import 'package:first/providers/provider.dart';
 import 'package:first/providers/proxyy.dart';
-
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
