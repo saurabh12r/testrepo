@@ -2,7 +2,9 @@ import 'package:first/providers/new_provider.dart';
 import 'package:first/providers/provider.dart';
 import 'package:first/screen/login.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+
 
 void main() {
   runApp(
@@ -24,6 +26,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Flutter Demo', home: LoginScreen());
+    return GetMaterialApp(title: 'Flutter Demo', home: LoginScreen());
   }
 }

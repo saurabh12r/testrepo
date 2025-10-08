@@ -1,6 +1,8 @@
 import 'package:first/providers/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:get/get.dart';
+import '../controller.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,6 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     print("build login screen");
     final counter = Provider.of<CounterProvider>(context, listen: false);
+    LoginController loginController = LoginController();
     return Scaffold(
       appBar: AppBar(title: const Text('Login Screen')),
       body: Center(
@@ -22,7 +25,8 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             ElevatedButton(
               onPressed: () {
-                counter.change();
+                loginController.change();
+                // counter.change();
                 // Navigator.of(context).push(
                 //   MaterialPageRoute(
                 //     builder: (context) => const NewScreen(),
@@ -31,12 +35,16 @@ class _LoginScreenState extends State<LoginScreen> {
               },
               child: const Text('Login'),
             ),
-            Selector<CounterProvider, bool>(
-              selector: (context, provider) => provider.isloding,
-              builder: (context, value, child) {
-                return value ? CircularProgressIndicator() : Container();
-              },
-            ),
+            // Selector<CounterProvider, bool>(
+            //   selector: (context, provider) => provider.isloding,
+            //   builder: (context, value, child) {
+            //     return value ? CircularProgressIndicator() : Container();
+            //   },
+            // ),
+
+            Obx(() => loginController.isLoading.value
+                ? CircularProgressIndicator()
+                : Container()),
           ],
         ),
       ),
